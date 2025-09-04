@@ -1,0 +1,38 @@
+:root {
+  /* Подборка в духе mgimo.ru: насыщенный синий, акцент красный, поддержка золота */
+  --mgimo-blue-900: #0a2a66;
+  --mgimo-blue-800: #0e3a8a;
+  --mgimo-blue-700: #1553c0;
+  --mgimo-blue-600: #1d4ed8; /* основной акцент */
+  --mgimo-blue-500: #2563eb;
+  --mgimo-red-500: #d62828; /* дополнительный акцент */
+  --mgimo-gold-400: #d4af37; /* премиальный штрих */
+  --surface-0: #0b1220; /* фон */
+  --surface-1: #0f172a; /* карточки */
+  --text-0: #f8fafc;
+  --text-1: #cbd5e1;
+  --shadow: 0 10px 30px rgba(2, 6, 23, 0.6);
+
+  --radius-xl: 20px;
+  --radius-lg: 16px;
+  --radius-md: 12px;
+
+  --gap-xl: 28px;
+  --gap-lg: 20px;
+  --gap-md: 16px;
+  --gap-sm: 12px;
+
+  --font-ui: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji";
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --surface-0: #f6f8fc;
+    --surface-1: #ffffff;
+    --text-0: #0b1220;
+    --text-1: #334155;
+    --shadow: 0 12px 30px rgba(2, 6, 23, 0.08);
+  }
+}
+
+

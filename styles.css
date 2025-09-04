@@ -1,0 +1,214 @@
+@import url("./theme.css");
+
+:root { color-scheme: light dark; }
+
+* { box-sizing: border-box; }
+
+html, body { height: 100%; }
+
+body {
+  margin: 0;
+  font-family: var(--font-ui);
+  background: radial-gradient(1200px 600px at 20% -10%, rgba(29,78,216,0.25), transparent 60%),
+              radial-gradient(900px 500px at 110% 10%, rgba(214,40,40,0.12), transparent 50%),
+              var(--surface-0);
+  color: var(--text-0);
+  display: grid;
+  place-items: center;
+  overflow-x: hidden;
+}
+
+.shell {
+  width: min(96dvw, 980px);
+  margin: 0 auto;
+  padding: clamp(36px, 8dvw, 112px);
+}
+
+.card {
+  background: rgba(255,255,255,0.08);
+  -webkit-backdrop-filter: saturate(140%) blur(16px);
+  backdrop-filter: saturate(140%) blur(16px);
+  border-radius: var(--radius-xl);
+  border: 1px solid rgba(255,255,255,0.22);
+  box-shadow: 0 24px 60px rgba(2,6,23,0.35), inset 0 1px 0 rgba(255,255,255,0.35);
+  padding: clamp(18px, 3.6dvw, 36px) clamp(28px, 5dvw, 64px) clamp(56px, 9dvw, 128px);
+  display: flex;
+  flex-direction: column;
+  min-height: clamp(520px, 70dvh, 860px);
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: var(--gap-md);
+  margin-bottom: clamp(8px, 2dvw, 18px);
+}
+
+.brand-logo { width: 92px; height: auto; filter: drop-shadow(0 10px 26px rgba(2,6,23,0.22)); }
+
+.brand-title {
+  font-size: clamp(14px, 2.4dvw, 16px);
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  color: var(--text-1);
+}
+
+.question {
+  font-size: clamp(30px, 6dvw, 56px);
+  line-height: 1.06;
+  margin: clamp(36px, 6dvw, 96px) 0 clamp(34px, 5dvw, 64px) 0;
+  font-weight: 900;
+  letter-spacing: 0.01em;
+  color: #0f172a;
+  white-space: nowrap;
+  text-align: center;
+}
+
+.question::after {
+  content: "";
+  display: block;
+  height: 6px;
+  width: clamp(160px, 46%, 520px);
+  margin: clamp(8px, 1.6dvw, 16px) auto 0;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--mgimo-blue-500), var(--mgimo-gold-400), #ef4444);
+  opacity: 0.5;
+}
+
+/* Дополнительные подсветки для вау-эффекта */
+.card { position: relative; }
+.card::before,
+.card::after {
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  border-radius: 50%;
+  filter: blur(32px);
+  opacity: 0.22;
+}
+.card::before {
+  width: 360px; height: 220px; left: -80px; top: -120px;
+  background: radial-gradient(closest-side, rgba(29,78,216,0.45), transparent);
+}
+.card::after {
+  width: 420px; height: 260px; right: -100px; bottom: -140px;
+  background: radial-gradient(closest-side, rgba(214,40,40,0.38), transparent);
+}
+
+.buttons {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(18px, 3.2dvw, 28px);
+  margin-top: clamp(28px, 7dvw, 92px);
+}
+
+.btn {
+  appearance: none;
+  border: none;
+  border-radius: var(--radius-lg);
+  padding: clamp(18px, 2.2dvw, 24px) clamp(20px, 2.6dvw, 28px);
+  font-size: 18px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.08s ease, box-shadow 0.2s ease, background 0.2s ease, filter 0.2s ease;
+}
+
+.btn:active { transform: translateY(1px) scale(0.992); }
+.btn:disabled { opacity: 0.6; cursor: not-allowed; }
+
+.btn-yes {
+  background: linear-gradient(135deg, var(--mgimo-blue-600), var(--mgimo-blue-500));
+  color: white;
+  box-shadow: 0 10px 22px rgba(29, 78, 216, 0.35);
+}
+.btn-yes:hover {
+  filter: brightness(1.06);
+}
+
+.btn-no {
+  background: linear-gradient(135deg, var(--mgimo-red-500), #ef4444);
+  color: #fff8f0;
+  box-shadow: 0 10px 22px rgba(214, 40, 40, 0.3);
+}
+.btn-no:hover { filter: brightness(1.05); }
+
+.meta {
+  display: flex;
+  gap: var(--gap-sm);
+  align-items: center;
+  justify-content: center;
+  margin-top: clamp(10px, 2dvw, 18px);
+  color: var(--text-1);
+  font-size: 14px;
+}
+
+.hint { opacity: 0.85; font-size: 14px; margin: 0; }
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: linear-gradient(180deg, rgba(212,175,55,0.25), rgba(212,175,55,0.12));
+  border: 1px solid rgba(212,175,55,0.35);
+  color: var(--mgimo-gold-400);
+  font-weight: 600;
+}
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(2,6,23,0.6);
+  display: grid;
+  place-items: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+}
+.overlay.visible { opacity: 1; pointer-events: auto; }
+
+.spinner {
+  width: 48px;
+  height: 48px;
+  border: 4px solid rgba(255,255,255,0.15);
+  border-top-color: var(--mgimo-blue-500);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin { to { transform: rotate(360deg); } }
+
+@media (max-width: 520px) {
+  html, body { height: 100svh; overflow: hidden; }
+  .shell {
+    width: 100dvw;
+    padding-inline: clamp(8px, 4dvw, 14px);
+    padding-block: clamp(12px, 4dvh, 20px);
+    min-height: 100svh;
+    display: grid;
+    place-items: center;
+  }
+  .card { padding: clamp(14px, 5.5dvw, 22px); min-height: auto; width: 100%; }
+  .brand-logo { width: 56px; }
+  .brand-title { font-size: 14px; }
+  .question { font-size: clamp(22px, 8dvw, 30px); margin: clamp(18px, 6dvw, 28px) 0 clamp(18px, 6dvw, 28px) 0; }
+  .question::after { width: 70%; height: 4px; }
+  .buttons { grid-template-columns: 1fr; gap: clamp(12px, 4.5dvw, 18px); margin-top: clamp(14px, 5.5dvw, 24px); }
+  .btn { padding: clamp(14px, 4.8dvw, 18px) clamp(16px, 5.6dvw, 22px); font-size: 17px; }
+  .meta { margin-top: clamp(12px, 4.5dvw, 18px); }
+  .card::before, .card::after { display: none; }
+}
+
+@media (min-width: 521px) and (max-width: 920px) {
+  .shell { padding: clamp(22px, 6.5dvw, 44px); }
+  .card { padding: clamp(22px, 6.5dvw, 44px); min-height: clamp(560px, 64dvh, 780px); }
+  .brand-logo { width: 84px; }
+  .question { font-size: clamp(30px, 6.6dvw, 46px); margin: clamp(22px, 4.2dvw, 38px) 0 clamp(24px, 4.6dvw, 40px) 0; }
+  .question::after { width: 60%; height: 5px; }
+  .buttons { gap: clamp(16px, 3.8dvw, 26px); }
+  .btn { padding: clamp(18px, 4.2dvw, 24px) clamp(20px, 4.8dvw, 28px); font-size: 19px; }
+  .card::before { top: -80px; }
+  .card::after { bottom: -100px; }
+}
+

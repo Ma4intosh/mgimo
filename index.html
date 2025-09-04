@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Опрос МГИМО</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
+    <meta name="robots" content="noindex, nofollow" />
+    <link rel="stylesheet" href="./theme.css" />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="shell">
+      <section class="card">
+        <div class="brand">
+          <img class="brand-logo" src="./logo_main.png" alt="Negotiation Club" />
+          <div class="brand-title">МГИМО — ответьте на вопрос, чтобы перейти к форме</div>
+        </div>
+        <h1 class="question">Вы студент МГИМО?</h1>
+        <div class="buttons">
+          <button id="btn-yes" class="btn btn-yes" type="button">Да</button>
+          <button id="btn-no" class="btn btn-no" type="button">Нет</button>
+        </div>
+        <div class="meta">
+          <span class="badge">Быстро • 1 клик</span>
+          <span class="hint" id="hint" hidden>Открывается ссылка на форму…</span>
+        </div>
+      </section>
+    </main>
+
+    <div class="overlay" id="overlay" aria-hidden="true">
+      <div class="spinner" role="status" aria-label="Загрузка"></div>
+    </div>
+
+    <script src="./config.js"></script>
+    <script src="./script.js"></script>
+  </body>
+  </html>
+
+
