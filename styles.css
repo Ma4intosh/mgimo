@@ -22,7 +22,10 @@ body::before {
   position: fixed;
   inset: 0;
   background:
-    url("./fon.png") center top no-repeat,
+    image-set(
+      url("./fon.webp") type("image/webp") 1x,
+      url("./fon.png") type("image/png") 1x
+    ) center top no-repeat,
     linear-gradient(90deg,
       rgba(10,42,102,1) 0%, rgba(10,42,102,0.85) 6%, rgba(10,42,102,0.0) 18%,
       rgba(10,42,102,0.0) 82%, rgba(10,42,102,0.85) 94%, rgba(10,42,102,1) 100%);
