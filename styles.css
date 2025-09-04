@@ -204,10 +204,12 @@ body::before {
   .shell {
     width: 100dvw;
     padding-inline: clamp(8px, 4dvw, 14px);
-    padding-block: clamp(12px, 4dvh, 20px);
+    padding-top: clamp(20px, 8dvh, 56px); /* поднять карточку чуть выше */
+    padding-bottom: clamp(10px, 3dvh, 20px);
     min-height: 100svh;
     display: grid;
-    place-items: center;
+    justify-items: center;
+    align-items: start;
   }
   .card { padding: clamp(14px, 5.5dvw, 22px); min-height: auto; width: 100%; }
   .brand-logo { width: 56px; }
